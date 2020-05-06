@@ -1,6 +1,7 @@
 const envPath = `config/.env.${process.env.ENV || 'local'}`
 require('dotenv').config({ path: envPath })
 const envSet = process.env
+const client = require('./app/plugins/contentful').default
 
 export default {
   mode: 'universal',
@@ -39,7 +40,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['plugins/contentful', 'plugins/components', 'plugins/markdown-it'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -60,6 +61,7 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/markdownit',
   ],
   /*
    ** Axios module configuration
@@ -73,7 +75,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
     },
   },
   googleAnalytics: {
@@ -93,4 +95,40 @@ export default {
     ignoreNotFoundWarnings: true,
   },
   env: envSet,
+  generate: {
+    routes() {
+      return Promise.all([
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+        }),
+        client.getEntries({
+          content_type: 'category',
+        }),
+        client.getEntries({
+          content_type: 'tag',
+        }),
+      ]).then(([posts, categories, tags]) => {
+        return [
+          ...posts.items.map((post: any) => {
+            return {
+              route: `posts/${post.fields.slug}`,
+              payload: post,
+            }
+          }),
+          ...categories.items.map((category: any) => {
+            return {
+              route: `categories/${category.fields.slug}`,
+              payload: category,
+            }
+          }),
+          ...tags.items.map((tag: any) => {
+            return { route: `tags/${tag.fields.slug}`, payload: tag }
+          }),
+        ]
+      })
+    },
+  },
+  router: {
+    middleware: ['getContentful'],
+  },
 }
