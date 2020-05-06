@@ -41,6 +41,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .nav-bar {
-  background: linear-gradient(270deg, #ff0000 0%, #000aff 30%);
+  background: linear-gradient(270deg, $red 0%, $blue 30%);
 }
 </style>

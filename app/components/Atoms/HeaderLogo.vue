@@ -21,7 +21,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .logo {
   &-title {
-    color: #fff;
+    color: $white;
   }
   &-link {
     text-decoration: none;
