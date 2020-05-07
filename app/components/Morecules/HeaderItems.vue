@@ -8,7 +8,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-// import HeaderItem from '@/components/Atoms/HeaderItem.vue'
 const HeaderItem = () => import('@/components/Atoms/HeaderItem.vue')
 
 type PropItem = {

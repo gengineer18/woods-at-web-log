@@ -81,8 +81,6 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-// import DraftChip from '~/components/posts/DraftChip'
-
 const DraftChip = () => import('@/components/posts/DraftChip.vue')
 
 export default {
