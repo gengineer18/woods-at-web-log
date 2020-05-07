@@ -1,16 +1,9 @@
 <template>
   <v-container fluid>
     <v-row justify="center">
-      <v-col cols="12" sm="11" md="10" xl="8">
+      <v-col cols="12" sm="11" md="11">
         <v-row v-if="posts.length">
-          <v-col
-            v-for="(post, i) in posts"
-            :key="i"
-            cols="12"
-            sm="6"
-            lg="4"
-            xl="3"
-          >
+          <v-col v-for="(post, i) in posts" :key="i" cols="12" sm="6">
             <v-card max-width="400" class="mx-auto">
               <v-img
                 :src="setEyeCatch(post).url"
