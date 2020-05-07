@@ -14,8 +14,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-// import TheHeader from '@/components/Organisms/TheHeader.vue'
-
 const TheHeader = () => import('@/components/Organisms/TheHeader.vue')
 
 export default Vue.extend({
