@@ -10,8 +10,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import HeaderLogo from '@/components/Atoms/HeaderLogo.vue'
-import HeaderItems from '@/components/Morecules/HeaderItems.vue'
+// import HeaderLogo from '@/components/Atoms/HeaderLogo.vue'
+// import HeaderItems from '@/components/Morecules/HeaderItems.vue'
+
+const HeaderLogo = () => import('@/components/Atoms/HeaderLogo.vue')
+const HeaderItems = () => import('@/components/Morecules/HeaderItems.vue')
 
 export default Vue.extend({
   components: {
