@@ -1,0 +1,30 @@
+<template>
+  <v-card-text>
+    <v-chip :to="to" small label dark color="#062883" class="ma-1">
+      <v-icon left size="18" color="white">
+        mdi-folder
+      </v-icon>
+      <span class="font-weight-bold">{{ name }}</span>
+    </v-chip>
+  </v-card-text>
+</template>
+
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { LinkTo } from '@/types/common'
+
+export default Vue.extend({
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    to: {
+      type: Object as PropType<LinkTo>,
+      required: true,
+    },
+  },
+})
+</script>
+
+<style lang="scss" scoped></style>
