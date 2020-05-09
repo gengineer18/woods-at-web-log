@@ -1,5 +1,6 @@
 <template>
-  <h1>
+  <h1 class="aside-title">
+    <v-icon left class="aside-title">{{ icon }}</v-icon>
     {{ title }}
   </h1>
 </template>
@@ -12,8 +13,16 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    icon: {
+      type: String,
+      required: true,
+    },
   },
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.aside-title {
+  color: $c-white;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <aside-headline :title="title" />
+    <aside-headline :title="title" :icon="icon" />
     <p>test</p>
     <p>test</p>
     <p>test</p>
@@ -19,6 +19,9 @@ export default Vue.extend({
   computed: {
     title(): string {
       return 'プロフィール'
+    },
+    icon(): string {
+      return 'mdi-account'
     },
   },
 })
