@@ -13,7 +13,6 @@
       <v-col>
         <template v-if="post.fields.category">
           <card-category
-            :to="linkTo('categories', post.fields.category)"
             :name="post.fields.category.fields.name"
             class="category-and-tags"
           />
@@ -21,7 +20,6 @@
         <template v-for="tag in post.fields.tags">
           <card-tag
             :key="tag.sys.id"
-            :to="linkTo('tags', tag)"
             :name="tag.fields.name"
             class="category-and-tags"
           />
@@ -34,8 +32,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import { mapState, mapGetters } from 'vuex'
+import { post } from '@/types/common.ts'
 const CardImage = () => import('@/components/Atoms/CardImage.vue')
 const CardTitle = () => import('@/components/Atoms/CardTitle.vue')
 const CardTag = () => import('@/components/Atoms/CardTag.vue')
@@ -54,13 +53,13 @@ export default Vue.extend({
   },
   props: {
     post: {
-      type: Object,
+      type: Object as PropType<post>,
       required: true,
     },
   },
   computed: {
     ...mapState(['posts']),
-    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'formatDate']),
+    ...mapGetters(['setEyeCatch', 'linkTo', 'formatDate']),
   },
 })
 </script>
