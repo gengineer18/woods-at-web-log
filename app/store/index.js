@@ -30,7 +30,7 @@ export const getters = {
     return { name: `${name}-slug`, params: { slug: obj.fields.slug } }
   },
   formatDate: () => (post) => {
-    return dayjs(post.fields.date).format('YYYY/MM/DD')
+    return dayjs(post.fields.date).format('YYYY年MM月DD日')
   },
   relatedPosts: (state) => (category) => {
     return state.posts.filter(
