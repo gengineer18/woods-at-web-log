@@ -1,6 +1,6 @@
 <template>
   <section class="aside-headline py-4">
-    <aside-title :title="title" class="text-center" />
+    <aside-title :title="title" :icon="icon" class="text-center" />
   </section>
 </template>
 
@@ -14,6 +14,10 @@ export default Vue.extend({
   },
   props: {
     title: {
+      type: String,
+      required: true,
+    },
+    icon: {
       type: String,
       required: true,
     },

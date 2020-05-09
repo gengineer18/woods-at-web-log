@@ -1,6 +1,5 @@
 <template>
   <h1 class="list-headline">
-    <v-icon left large class="list-headline">{{ icon }}</v-icon>
     {{ headline }}
   </h1>
 </template>
