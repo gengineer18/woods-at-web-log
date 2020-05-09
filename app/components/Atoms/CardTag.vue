@@ -1,6 +1,6 @@
 <template>
   <v-card-text>
-    <v-chip :to="to" small label dark color="#e5012c" class="ma-1">
+    <v-chip small label dark color="#e5012c" class="ma-1">
       <v-icon left size="18" color="white">
         mdi-tag
       </v-icon>
@@ -10,17 +10,12 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
-import { LinkTo } from '@/types/common'
+import Vue from 'vue'
 
 export default Vue.extend({
   props: {
     name: {
       type: String,
-      required: true,
-    },
-    to: {
-      type: Object as PropType<LinkTo>,
       required: true,
     },
   },
