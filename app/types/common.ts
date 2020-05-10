@@ -3,43 +3,43 @@ export type LinkTo = {
   params: string
 }
 
-export type post = {
-  fields: postFields
-  sys: sys
+export type Post = {
+  fields: PostFields
+  sys: Sys
 }
 
-export type category = {
-  fields: categoryFields
-  sys: sys
+export type Category = {
+  fields: CategoryFields
+  sys: Sys
 }
 
-export type tag = {
-  fields: tagFields
-  sys: sys
+export type Tag = {
+  fields: TagFields
+  sys: Sys
 }
 
-type postFields = {
+type PostFields = {
   body: string
-  category: category
+  category: Category
   date: string
   slug: string
-  tags: Array<tag>
+  tags: Array<Tag>
   title: string
 }
 
-type categoryFields = {
+type CategoryFields = {
   definition: string
   name: string
   slug: string
   sort: number
 }
 
-type tagFields = {
+type TagFields = {
   name: string
   slug: string
 }
 
-type sys = {
+type Sys = {
   createdAt: string
   updatedAt: string
 }

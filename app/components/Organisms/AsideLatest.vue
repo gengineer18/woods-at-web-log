@@ -1,20 +1,21 @@
 <template>
   <v-card>
     <aside-headline :title="title" :icon="icon" />
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
+    <aside-latest-list :posts="latestPosts" />
   </v-card>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 const AsideHeadline = () => import('@/components/Morecules/AsideHeadline.vue')
+const AsideLatestList = () =>
+  import('@/components/Morecules/AsideLatestList.vue')
 
 export default Vue.extend({
   components: {
     AsideHeadline,
+    AsideLatestList,
   },
   computed: {
     title(): string {
@@ -23,6 +24,7 @@ export default Vue.extend({
     icon(): string {
       return 'mdi-pen'
     },
+    ...mapGetters(['latestPosts', 'formatDate']),
   },
 })
 </script>
