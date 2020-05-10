@@ -52,6 +52,9 @@ export const getters = {
     }
     return posts
   },
+  latestPosts: (state) => {
+    return state.posts.slice(0, 10)
+  },
 }
 
 export const mutations = {
