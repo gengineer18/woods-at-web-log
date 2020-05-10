@@ -1,20 +1,21 @@
 <template>
   <v-card>
     <aside-headline :title="title" :icon="icon" />
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
+    <aside-category-list :categories="categories" />
   </v-card>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
 const AsideHeadline = () => import('@/components/Morecules/AsideHeadline.vue')
+const AsideCategoryList = () =>
+  import('@/components/Morecules/AsideCategoryList.vue')
 
 export default Vue.extend({
   components: {
     AsideHeadline,
+    AsideCategoryList,
   },
   computed: {
     title(): string {
@@ -23,6 +24,7 @@ export default Vue.extend({
     icon(): string {
       return 'mdi-folder'
     },
+    ...mapState(['categories']),
   },
 })
 </script>
