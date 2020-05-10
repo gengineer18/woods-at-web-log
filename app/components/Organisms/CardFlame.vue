@@ -34,7 +34,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { mapState, mapGetters } from 'vuex'
-import { post } from '@/types/common.ts'
+import { Post } from '@/types/common.ts'
 const CardImage = () => import('@/components/Atoms/CardImage.vue')
 const CardTitle = () => import('@/components/Atoms/CardTitle.vue')
 const CardTag = () => import('@/components/Atoms/CardTag.vue')
@@ -53,7 +53,7 @@ export default Vue.extend({
   },
   props: {
     post: {
-      type: Object as PropType<post>,
+      type: Object as PropType<Post>,
       required: true,
     },
   },
