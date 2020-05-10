@@ -1,5 +1,6 @@
 <template>
   <h1 class="list-headline">
+    <v-icon size="28" class="list-headline--icon">{{ icon }}</v-icon>
     {{ headline }}
   </h1>
 </template>
@@ -24,5 +25,8 @@ export default Vue.extend({
 .list-headline {
   color: $c-blue;
   font-size: 28px;
+  &--icon {
+    color: $c-blue;
+  }
 }
 </style>
