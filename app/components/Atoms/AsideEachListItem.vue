@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
     <v-icon small class="icon">{{ icon }}</v-icon>
-    {{ name }}
+    {{ name }} <template v-if="count">({{ count }})</template>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default Vue.extend({
     icon: {
       type: String,
       required: true,
+    },
+    count: {
+      type: Number,
+      required: false,
+      default: 0,
     },
   },
 })
