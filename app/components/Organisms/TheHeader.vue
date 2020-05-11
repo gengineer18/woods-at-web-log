@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 const HeaderLogo = () => import('@/components/Atoms/HeaderLogo.vue')
-const HeaderItems = () => import('@/components/Morecules/HeaderItems.vue')
+const HeaderItems = () => import('@/components/Molecules/HeaderItems.vue')
 
 export default Vue.extend({
   components: {

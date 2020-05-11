@@ -8,9 +8,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-const AsideHeadline = () => import('@/components/Morecules/AsideHeadline.vue')
+const AsideHeadline = () => import('@/components/Molecules/AsideHeadline.vue')
 const AsideLatestList = () =>
-  import('@/components/Morecules/AsideLatestList.vue')
+  import('@/components/Molecules/AsideLatestList.vue')
 
 export default Vue.extend({
   components: {

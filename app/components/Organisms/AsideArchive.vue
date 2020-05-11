@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-const AsideHeadline = () => import('@/components/Morecules/AsideHeadline.vue')
+const AsideHeadline = () => import('@/components/Molecules/AsideHeadline.vue')
 
 export default Vue.extend({
   components: {

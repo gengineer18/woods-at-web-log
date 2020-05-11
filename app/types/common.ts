@@ -40,6 +40,7 @@ type TagFields = {
 }
 
 type Sys = {
+  id: string
   createdAt: string
   updatedAt: string
 }
