@@ -8,8 +8,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex'
-const AsideHeadline = () => import('@/components/Morecules/AsideHeadline.vue')
-const AsideTagList = () => import('@/components/Morecules/AsideTagList.vue')
+const AsideHeadline = () => import('@/components/Molecules/AsideHeadline.vue')
+const AsideTagList = () => import('@/components/Molecules/AsideTagList.vue')
 
 export default Vue.extend({
   components: {
