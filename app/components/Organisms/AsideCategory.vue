@@ -6,7 +6,7 @@
         <nuxt-link :to="link(category.fields.slug)" class="post-list">
           <aside-each-list-item
             :name="category.fields.name"
-            icon="mdi-folder"
+            :icon="icon"
             :count="relatedPostsCount(category, posts)"
           />
         </nuxt-link>
