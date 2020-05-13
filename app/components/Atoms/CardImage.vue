@@ -1,5 +1,5 @@
 <template>
-  <v-img :src="src" :alt="alt" :aspect-ratio="16 / 9" max-height="200"> </v-img>
+  <v-img :src="src" :alt="alt" max-height="200"> </v-img>
 </template>
 
 <script lang="ts">

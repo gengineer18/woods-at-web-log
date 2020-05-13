@@ -73,7 +73,10 @@ export default {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['~/assets/variables.scss', '~/assets/overwrite.scss'],
+    customVariables: [
+      '~/assets/scss/variables.scss',
+      '~/assets/scss/overwrite.scss',
+    ],
     theme: {
       dark: false,
     },

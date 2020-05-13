@@ -5,9 +5,9 @@
       :alt="setEyeCatch(post).title"
     ></card-image>
 
-    <card-title :title="post.fields.title" class="mt-2 mb-1" />
+    <!-- <card-title :title="post.fields.title" class="mt-2 mb-1" /> -->
 
-    <card-date :date="formatDate(post)" />
+    <card-date :date="formatDate(post)" class="mt-2" />
 
     <v-row>
       <v-col>
@@ -27,6 +27,8 @@
       </v-col>
     </v-row>
 
+    <v-divider class="my-2" />
+
     <card-body :body="post.fields.body" class="pt-1 pb-3" />
   </v-card>
 </template>
@@ -36,7 +38,7 @@ import Vue, { PropType } from 'vue'
 import { mapState, mapGetters } from 'vuex'
 import { Post } from '@/types/common.ts'
 const CardImage = () => import('@/components/Atoms/CardImage.vue')
-const CardTitle = () => import('@/components/Atoms/CardTitle.vue')
+// const CardTitle = () => import('@/components/Atoms/CardTitle.vue')
 const CardTag = () => import('@/components/Atoms/CardTag.vue')
 const CardDate = () => import('@/components/Atoms/CardDate.vue')
 const CardCategory = () => import('@/components/Atoms/CardCategory.vue')
@@ -45,7 +47,7 @@ const CardBody = () => import('@/components/Atoms/CardBody.vue')
 export default Vue.extend({
   components: {
     CardImage,
-    CardTitle,
+    // CardTitle,
     CardTag,
     CardDate,
     CardCategory,
