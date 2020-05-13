@@ -12,9 +12,6 @@
             <card-flame :post="post" />
           </v-col>
         </v-row>
-        <div v-else class="text-center">
-          投稿された記事はありません。
-        </div>
       </v-col>
     </v-row>
   </v-container>
