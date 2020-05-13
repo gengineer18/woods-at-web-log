@@ -23,11 +23,11 @@ export default Vue.extend({
       return [
         {
           name: 'フリーランス',
-          to: '/category/freelance',
+          to: '/categories/freelance',
         },
         {
           name: 'フロントエンド',
-          to: '/category/frontend',
+          to: '/categories/frontend',
         },
         {
           name: 'お問い合わせ',
