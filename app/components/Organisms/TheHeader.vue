@@ -1,10 +1,10 @@
 <template>
   <v-app-bar fixed app dark elevate-on-scroll class="nav-bar">
-    <v-spacer />
+    <v-spacer class="spacer-nav" />
     <header-logo />
     <v-spacer />
     <header-items :items="items" />
-    <v-spacer />
+    <v-spacer class="spacer-nav" />
   </v-app-bar>
 </template>
 
@@ -42,5 +42,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .nav-bar {
   background: linear-gradient(270deg, $c-red 0%, $c-blue 30%);
+}
+.spacer-nav {
+  max-width: 180px;
 }
 </style>
