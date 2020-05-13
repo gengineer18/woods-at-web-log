@@ -52,6 +52,11 @@ export const getters = {
     }
     return posts
   },
+  archivePosts: (state) => (month) => {
+    return state.posts.filter(
+      (post) => dayjs(post.fields.date).format('YYYYMM') === month
+    )
+  },
   latestPosts: (state) => {
     return state.posts.slice(0, 10)
   },
