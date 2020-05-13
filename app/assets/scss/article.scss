@@ -1,0 +1,24 @@
+::v-deep h2 {
+  background: linear-gradient(270deg, #e5012c 0%, #062883 30%);
+  color: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+::v-deep h3 {
+  border-left: solid 6px #062883;
+  font-size: 1.6rem;
+  padding: 2px 8px;
+}
+
+::v-deep ul {
+  background-color: #bbceff;
+  list-style-type: disc;
+  padding: 8px 8px 8px 32px;
+  margin: 0 16px 16px;
+}
+
+::v-deep .article-list p {
+  margin: 0;
+  font-weight: bold;
+}
