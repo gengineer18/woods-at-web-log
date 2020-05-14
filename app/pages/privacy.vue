@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 class="mb-4">プライバシーポリシー</h1>
+    <h1 class="mb-4 headline">プライバシーポリシー</h1>
     <ul>
       <li v-for="(privacy, i) in policies" :key="i">
         <h2>{{ privacy.fields.title }}</h2>
@@ -34,5 +34,6 @@ export default Vue.extend({
 ul,
 li {
   list-style: none;
+  padding: 0;
 }
 </style>

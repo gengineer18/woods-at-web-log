@@ -5,23 +5,21 @@
       :alt="setEyeCatch(post).title"
     ></card-image>
 
-    <!-- <card-title :title="post.fields.title" class="mt-2 mb-1" /> -->
-
-    <card-date :date="formatDate(post)" class="mt-2" />
+    <card-date :date="formatDate(post)" class="my-2 pl-2" />
 
     <v-row>
       <v-col>
         <template v-if="post.fields.category">
           <card-category
             :name="post.fields.category.fields.name"
-            class="category-and-tags"
+            class="category mb-2"
           />
         </template>
         <template v-for="tag in post.fields.tags">
           <card-tag
             :key="tag.sys.id"
             :name="tag.fields.name"
-            class="category-and-tags"
+            class="tags mb-2"
           />
         </template>
       </v-col>
@@ -38,7 +36,6 @@ import Vue, { PropType } from 'vue'
 import { mapState, mapGetters } from 'vuex'
 import { Post } from '@/types/common.ts'
 const CardImage = () => import('@/components/Atoms/CardImage.vue')
-// const CardTitle = () => import('@/components/Atoms/CardTitle.vue')
 const CardTag = () => import('@/components/Atoms/CardTag.vue')
 const CardDate = () => import('@/components/Atoms/CardDate.vue')
 const CardCategory = () => import('@/components/Atoms/CardCategory.vue')
@@ -47,7 +44,6 @@ const CardBody = () => import('@/components/Atoms/CardBody.vue')
 export default Vue.extend({
   components: {
     CardImage,
-    // CardTitle,
     CardTag,
     CardDate,
     CardCategory,
@@ -68,10 +64,13 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .card--content {
-  padding: 0 1rem;
+  padding: 0 8px;
 }
-.category-and-tags {
+.category {
+  padding: 0 0 0 8px;
+}
+.tags {
   display: inline;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 8px;
 }
 </style>
