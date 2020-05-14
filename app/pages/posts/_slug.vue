@@ -2,11 +2,16 @@
   <v-container fluid>
     <v-card class="pa-4">
       <template v-if="currentPost">
-        <p>Publish: {{ formatDate(currentPost) }}</p>
+        <p>
+          <v-icon color="#e5012c">mdi-book-open-page-variant</v-icon>
+          {{ formatDate(currentPost) }}
+        </p>
         <v-img
           :src="setEyeCatch(currentPost).url"
           :alt="setEyeCatch(currentPost).title"
         />
+        <article-category-and-tag :post="currentPost" class="my-2" />
+        <v-divider />
         <article class="mt-4">
           <div
             class="article-body"
@@ -27,7 +32,13 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { Post } from '@/types/common'
 
+const ArticleCategoryAndTag = () =>
+  import('@/components/Organisms/ArticleCategoryAndTag.vue')
+
 export default Vue.extend({
+  components: {
+    ArticleCategoryAndTag,
+  },
   async asyncData({ payload, store, params, error }) {
     const currentPost =
       payload ||

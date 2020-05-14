@@ -1,6 +1,6 @@
 <template>
   <v-card-text>
-    <v-chip small label dark color="#e5012c" class="ma-1">
+    <v-chip small label dark color="#e5012c">
       <v-icon left size="18" color="white">
         mdi-tag
       </v-icon>
