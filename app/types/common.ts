@@ -1,3 +1,5 @@
+export type VForm = Vue & { validate: () => boolean }
+
 export type LinkTo = {
   name: string
   params: string
