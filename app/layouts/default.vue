@@ -13,9 +13,7 @@
         </v-row>
       </v-container>
     </v-content>
-    <v-footer fixed app>
-      <span>&copy; 2020 Woods At Web</span>
-    </v-footer>
+    <the-footer />
   </v-app>
 </template>
 
@@ -23,11 +21,13 @@
 import Vue from 'vue'
 const TheHeader = () => import('@/components/Organisms/TheHeader.vue')
 const TheAside = () => import('@/components/Organisms/TheAside.vue')
+const TheFooter = () => import('@/components/Organisms/TheFooter.vue')
 
 export default Vue.extend({
   components: {
     TheHeader,
     TheAside,
+    TheFooter,
   },
 })
 </script>
