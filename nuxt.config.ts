@@ -10,21 +10,20 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Woods At Web Log',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'description',
+        content:
+          'Woods At Webの公式ブログ。フロントエンドエンジニアについて、フリーランスエンジニアについての記事を中心に、妹尾 弦の好きなものについて様々な記事を書いていきます。',
       },
-      // 開発中はクローリングさせない。リリース時に必ず外すこと！！
       {
-        hid: 'robots',
-        name: 'robots',
-        content: 'noindex,nofollow',
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: 'Woods At Web log',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
