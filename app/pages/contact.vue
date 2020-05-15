@@ -34,7 +34,9 @@
       </v-btn>
     </v-form>
     <div v-if="submitted">
-      <p>お問い合わせありがとうございました。</p>
+      <h2 class="text-center mt-4">
+        お問い合わせいただきありがとうございます。
+      </h2>
     </div>
   </v-container>
 </template>
