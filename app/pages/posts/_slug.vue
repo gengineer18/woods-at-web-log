@@ -30,7 +30,22 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Post } from '@/types/common'
+
+interface DataType {
+  currentPost: Post
+}
+interface MethodType {}
+interface ComputedType {
+  setEyeCatch: (
+    post: any
+  ) => {
+    url: string
+    title: any
+  }
+}
+interface PropType {}
 
 const ArticleCategoryAndTag = () =>
   import('@/components/Organisms/ArticleCategoryAndTag.vue')
@@ -40,7 +55,7 @@ export default Vue.extend({
     ArticleCategoryAndTag,
   },
   async asyncData({ payload, store, params, error }) {
-    const currentPost =
+    const currentPost: Post =
       payload ||
       (await store.state.posts.find(
         (post: Post) => post.fields.slug === params.slug
@@ -58,7 +73,44 @@ export default Vue.extend({
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'formatDate']),
   },
-})
+  head(): any {
+    return {
+      title: this.currentPost.fields.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.currentPost.fields.body.substring(0, 120),
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.currentPost.fields.title,
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: `https://blog.woodsatweb.com/posts/${this.currentPost.fields.slug}`,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.setEyeCatch(this.currentPost).url,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.currentPost.fields.body.substring(0, 120),
+        },
+      ],
+    }
+  },
+} as ThisTypedComponentOptionsWithRecordProps<Vue, DataType, MethodType, ComputedType, PropType>)
 </script>
 
 <style lang="scss" scoped>

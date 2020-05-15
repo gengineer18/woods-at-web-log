@@ -27,6 +27,7 @@ type PostFields = {
   slug: string
   tags: Array<Tag>
   title: string
+  image: string
 }
 
 type CategoryFields = {
