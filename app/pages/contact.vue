@@ -1,48 +1,41 @@
 <template>
   <v-container tag="section">
     <list-headline :headline="label.title" :icon="icon" class="text-center" />
-    <v-form v-model="valid" method="post" netlify>
+    <v-form v-if="!submitted" v-model="valid" method="post" netlify>
       <v-text-field v-show="false" name="form-name" />
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            v-model="name"
-            :label="label.name"
-            :rules="nameRules"
-            name="name"
-            autofocus
-          />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            v-model="email"
-            :label="label.email"
-            :rules="emailRules"
-            name="email"
-          />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12">
-          <v-textarea
-            v-model="message"
-            :label="label.message"
-            name="message"
-            :rules="messageRules"
-          />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-btn :disabled="!valid" type="submit" color="#062883" outlined>
-            <v-icon left>{{ icon }}</v-icon>
-            Contact
-          </v-btn>
-        </v-col>
-      </v-row>
+      <v-text-field
+        v-model="name"
+        :label="label.name"
+        :rules="nameRules"
+        name="name"
+        autofocus
+      />
+      <v-text-field
+        v-model="email"
+        :label="label.email"
+        :rules="emailRules"
+        name="email"
+      />
+
+      <v-textarea
+        v-model="message"
+        :label="label.message"
+        name="message"
+        :rules="messageRules"
+      />
+      <v-text-field
+        v-show="false"
+        v-model="botfield"
+        label="人間は入力しないでください"
+      />
+      <v-btn :disabled="!valid" color="#062883" outlined @click="submit">
+        <v-icon left>{{ icon }}</v-icon>
+        Contact
+      </v-btn>
     </v-form>
+    <div v-if="submitted">
+      <p>お問い合わせありがとうございました。</p>
+    </div>
   </v-container>
 </template>
 
@@ -68,6 +61,8 @@ export default Vue.extend({
       ],
       message: '',
       messageRules: [(v: string) => !!v || 'メッセージは必須項目です。'],
+      botfield: '',
+      submitted: false,
     }
   },
   computed: {
@@ -96,6 +91,21 @@ export default Vue.extend({
     validate() {
       const form = this.form
       form.validate()
+    },
+    async submit() {
+      const params = new FormData()
+      // 以下、ダミーフォームの各フォーム要素のnameと合わせる
+      params.append('form-name', 'contact')
+      params.append('name', this.name)
+      params.append('email', this.email)
+      params.append('message', this.message)
+      params.append('bot-field', this.botfield)
+
+      const response = await this.$axios.$post(window.location.origin, params)
+      // 実際はresponseを使って画面側にフィードバックさせるが、ここでは仮にconsoleに出力
+      if (response) {
+        this.submitted = true
+      }
     },
   },
 })
