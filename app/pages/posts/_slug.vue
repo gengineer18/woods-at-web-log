@@ -83,11 +83,11 @@ export default Vue.extend({
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'formatDate']),
     linkTwitter(): string {
-      const url = 'https://blog.woodsatweb.com/post'
+      const url = 'https://blog.woodsatweb.com/posts'
       return `https://twitter.com/intent/tweet?url=${url}/${this.currentPost.fields.slug}&text=${this.currentPost.fields.title}`
     },
     linkFacebook(): string {
-      const url = 'https://blog.woodsatweb.com/post'
+      const url = 'https://blog.woodsatweb.com/posts'
       return `https://www.facebook.com/sharer/sharer.php?u=${url}/${this.currentPost.fields.slug}`
     },
   },
