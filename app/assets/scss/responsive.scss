@@ -1,0 +1,20 @@
+$pc:  "only screen and (min-width:600px)";
+$sp:  "only screen and (max-width:600px)";
+
+@media #{$pc} {
+  .d-pc {
+    display: block;
+  }
+  .d-sp {
+    display: none;
+  }
+}
+
+@media #{$sp} {
+  .d-pc {
+    display: none;
+  }
+  .d-sp {
+    display: block;
+  }
+}

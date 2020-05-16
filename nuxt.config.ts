@@ -39,7 +39,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['plugins/contentful', 'plugins/components', 'plugins/markdown-it'],
+  plugins: ['plugins/contentful', 'plugins/markdown-it'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -75,6 +75,7 @@ export default {
     customVariables: [
       '~/assets/scss/variables.scss',
       '~/assets/scss/overwrite.scss',
+      '~/assets/scss/responsive.scss',
     ],
     theme: {
       dark: false,
