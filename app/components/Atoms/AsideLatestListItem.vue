@@ -1,6 +1,6 @@
 <template>
   <div class="list-item">
-    <v-icon small class="icon">{{ icon }}</v-icon>
+    <v-icon small color="#062883">{{ icon }}</v-icon>
     {{ title }} / {{ date }}
   </div>
 </template>
@@ -26,9 +26,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  color: $c-blue;
-}
 .list-item {
   border-bottom: 2px solid $c-red;
 }
