@@ -132,6 +132,17 @@ export default Vue.extend({
           name: 'og:description',
           content: this.currentPost.fields.body.substring(0, 120),
         },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@gengineer18',
+        },
       ],
     }
   },
