@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-center name-headline">妹尾 弦(せのお げん) / うずらさん</h2>
+  <h2 class="text-center name-headline">妹尾 弦(せのお げん)</h2>
 </template>
 
 <script lang="ts">

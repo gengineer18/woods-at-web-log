@@ -1,6 +1,6 @@
 <template>
   <h1 class="aside-title">
-    <v-icon left class="aside-title">{{ icon }}</v-icon>
+    <v-icon left class="aside-title" color="#fff">{{ icon }}</v-icon>
     {{ title }}
   </h1>
 </template>
