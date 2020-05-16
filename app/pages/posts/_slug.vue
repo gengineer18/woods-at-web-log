@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container id="article-wrap" fluid>
     <v-card class="pa-4">
       <template v-if="currentPost">
         <p>
@@ -17,6 +17,11 @@
             class="article-body"
             v-html="$md.render(currentPost.fields.body)"
           ></div>
+          <v-divider class="my-4" />
+          <div class="text-center">
+            <button-twitter :link="linkTwitter" />
+            <button-facebook :link="linkFacebook" />
+          </div>
         </article>
       </template>
 
@@ -32,6 +37,9 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Post } from '@/types/common'
+
+const ButtonTwitter = () => import('@/components/Atoms/ButtonTwitter.vue')
+const ButtonFacebook = () => import('@/components/Atoms/ButtonFacebook.vue')
 
 interface DataType {
   currentPost: Post
@@ -53,6 +61,8 @@ const ArticleCategoryAndTag = () =>
 export default Vue.extend({
   components: {
     ArticleCategoryAndTag,
+    ButtonTwitter,
+    ButtonFacebook,
   },
   async asyncData({ payload, store, params, error }) {
     const currentPost: Post =
@@ -72,8 +82,23 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'formatDate']),
+    linkTwitter(): string {
+      const url = 'https://blog.woodsatweb.com/post'
+      return `https://twitter.com/intent/tweet?url=${url}/${this.currentPost.fields.slug}&text=${this.currentPost.fields.title}`
+    },
+    linkFacebook(): string {
+      const url = 'https://blog.woodsatweb.com/post'
+      return `https://www.facebook.com/sharer/sharer.php?u=${url}/${this.currentPost.fields.slug}`
+    },
   },
-  head(): any {
+  mounted() {
+    const article = document.getElementById('article-wrap')
+    const links = article ? article.getElementsByTagName('a') : []
+    for (let i = 0; i < links.length; i++) {
+      links[i].setAttribute('target', '_blank')
+    }
+  },
+  head() {
     return {
       title: this.currentPost.fields.title,
       meta: [
@@ -115,4 +140,9 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import url(~/assets/scss/article.scss);
+.share-area {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $c-blue;
+}
 </style>
