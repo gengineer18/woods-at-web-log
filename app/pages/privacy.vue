@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="privacy-wrap">
     <h1 class="mb-4 headline">プライバシーポリシー</h1>
     <ul>
       <li v-for="(privacy, i) in policies" :key="i">
@@ -26,6 +26,13 @@ export default Vue.extend({
         return res.items
       })
     return { policies }
+  },
+  mounted() {
+    const privacy = document.getElementById('privacy-wrap')
+    const links = privacy ? privacy.getElementsByTagName('a') : []
+    for (let i = 0; i < links.length; i++) {
+      links[i].setAttribute('target', '_blank')
+    }
   },
 })
 </script>

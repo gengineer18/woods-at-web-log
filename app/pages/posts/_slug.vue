@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container id="article-wrap" fluid>
     <v-card class="pa-4">
       <template v-if="currentPost">
         <p>
@@ -73,7 +73,14 @@ export default Vue.extend({
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'formatDate']),
   },
-  head(): any {
+  mounted() {
+    const article = document.getElementById('article-wrap')
+    const links = article ? article.getElementsByTagName('a') : []
+    for (let i = 0; i < links.length; i++) {
+      links[i].setAttribute('target', '_blank')
+    }
+  },
+  head() {
     return {
       title: this.currentPost.fields.title,
       meta: [
