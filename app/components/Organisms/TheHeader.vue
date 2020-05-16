@@ -2,8 +2,8 @@
   <v-app-bar fixed app dark elevate-on-scroll class="nav-bar">
     <v-spacer class="spacer-nav" />
     <header-logo />
-    <v-spacer />
-    <header-items :items="items" />
+    <v-spacer class="d-pc" />
+    <header-items :items="items" class="d-pc" />
     <v-spacer class="spacer-nav" />
   </v-app-bar>
 </template>
