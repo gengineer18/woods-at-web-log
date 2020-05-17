@@ -1,36 +1,37 @@
 <template>
-  <ul class="sns">
-    <li class="sns--item">
-      <div class="sns--icon-wrap">
-        <a href="https://twitter.com/gengineer18" target="_blank">
-          <icon-twitter :width="iconsize" :height="iconsize" />
-        </a>
-      </div>
-    </li>
-    <li class="sns--item">
-      <div class="sns--icon-wrap">
-        <a href="https://www.facebook.com/gen.senoo" target="_blank">
-          <icon-facebook :width="iconsize" :height="iconsize" />
-        </a>
-      </div>
-    </li>
-  </ul>
+  <div>
+    <h4 class="text-center">＼Follow me!／</h4>
+    <ul class="sns">
+      <li class="sns--item">
+        <div class="sns--icon-wrap">
+          <icon-twitter />
+        </div>
+      </li>
+      <li class="sns--item">
+        <div class="sns--icon-wrap">
+          <icon-facebook />
+        </div>
+      </li>
+      <li class="sns--item">
+        <div class="sns--icon-wrap">
+          <icon-github />
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 const IconTwitter = () => import('@/components/Atoms/IconTwitter.vue')
 const IconFacebook = () => import('@/components/Atoms/IconFacebook.vue')
+const IconGithub = () => import('@/components/Atoms/IconGithub.vue')
 
 export default Vue.extend({
   components: {
     IconTwitter,
     IconFacebook,
-  },
-  computed: {
-    iconsize(): number {
-      return 50
-    },
+    IconGithub,
   },
 })
 </script>

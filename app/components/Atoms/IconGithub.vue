@@ -1,6 +1,6 @@
 <template>
-  <a href="https://www.facebook.com/gen.senoo" target="_blank">
-    <v-icon x-large color="#1977f2">mdi-facebook</v-icon>
+  <a href="https://github.com/gengineer18" target="_blank">
+    <v-icon x-large color="black">mdi-github</v-icon>
   </a>
 </template>
 
