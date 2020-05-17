@@ -24,6 +24,7 @@
     "markdown-it-div": "^1.1.0",
     "markdown-it-toc": "^1.1.0",
     "nuxt": "^2.12.2",
+    "prismjs": "^1.20.0",
     "ress": "^2.0.4"
   },
   "devDependencies": {

@@ -39,7 +39,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['plugins/contentful', 'plugins/markdown-it'],
+  plugins: ['plugins/contentful', 'plugins/markdown-it', 'plugins/prism'],
   /*
    ** Nuxt.js dev-modules
    */

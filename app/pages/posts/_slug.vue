@@ -13,8 +13,9 @@
         <article-category-and-tag :post="currentPost" class="my-2" />
         <v-divider />
         <article class="mt-4">
+          <!-- line-numbersはprism.js用のclass -->
           <div
-            class="article-body"
+            class="article-body line-numbers"
             v-html="$md.render(currentPost.fields.body)"
           ></div>
           <v-divider class="my-4" />
@@ -37,6 +38,7 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Post } from '@/types/common'
+import Prism from '@/plugins/prism'
 
 const ButtonTwitter = () => import('@/components/Atoms/ButtonTwitter.vue')
 const ButtonFacebook = () => import('@/components/Atoms/ButtonFacebook.vue')
@@ -92,6 +94,7 @@ export default Vue.extend({
     },
   },
   mounted() {
+    Prism.highlightAll()
     const article = document.getElementById('article-wrap')
     const links = article ? article.getElementsByTagName('a') : []
     for (let i = 0; i < links.length; i++) {
