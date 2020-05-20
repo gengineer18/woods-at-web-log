@@ -33,3 +33,7 @@
   margin: 0;
   font-weight: bold;
 }
+
+::v-deep img {
+  max-width: 100%;
+}
