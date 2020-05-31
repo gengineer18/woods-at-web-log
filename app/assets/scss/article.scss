@@ -4,11 +4,16 @@
   padding: 12px;
   margin-bottom: 8px;
   font-size: 1.8rem;
+  margin-bottom: 16px;
 }
 ::v-deep h3 {
   border-left: solid 6px #062883;
   font-size: 1.6rem;
   padding: 4px 8px;
+  margin-bottom: 16px;
+}
+
+::v-deep h4 {
   margin-bottom: 8px;
 }
 
@@ -36,4 +41,12 @@
 
 ::v-deep img {
   max-width: 100%;
+}
+
+::v-deep pre {
+  margin-bottom: 16px;
+}
+
+::v-deep code:before {
+  content: "";
 }
